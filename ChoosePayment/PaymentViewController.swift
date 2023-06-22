@@ -7,11 +7,7 @@
 
 import UIKit
 
-protocol PaymentDelegate {
-    func getPaymentMethod(paymentMethod: String)
-}
-
-class PaymentViewController: UIViewController, PaymentDelegate {
+class PaymentViewController: UIViewController {
     
     let errorMessage = "Error Message"
     
@@ -25,14 +21,9 @@ class PaymentViewController: UIViewController, PaymentDelegate {
     
     @IBAction func pressChoosePayment(_ sender: Any) {
         let paymentStoryboard = UIStoryboard(name: "ChoosePayment", bundle: nil)
-
         let paymentVC = paymentStoryboard.instantiateViewController(withIdentifier: "ViewController") as! ChoosePaymentViewController
-        paymentVC.paymentDelegate = self
         present(paymentVC, animated: true, completion: nil)
     }
     
-    func getPaymentMethod(paymentMethod: String) {
-        choosePaymentMethodBtn.setTitle("\(paymentMethod)", for: .normal)
-    }
 
 }

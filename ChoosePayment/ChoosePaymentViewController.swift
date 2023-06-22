@@ -10,7 +10,7 @@ import UIKit
 class ChoosePaymentViewController: UIViewController {
     
     @IBOutlet weak var creditBtn: UIButton!
-    var paymentDelegate: PaymentDelegate?
+    var chosenPayment: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,23 +19,23 @@ class ChoosePaymentViewController: UIViewController {
     }
 
     @IBAction func pressCreditDebit(_ sender: Any) {
-        paymentDelegate?.getPaymentMethod(paymentMethod: "Credit/Debit Card")
+        chosenPayment = "Credit/Debit Card"
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func pressVirtualAccount(_ sender: Any) {
-        paymentDelegate?.getPaymentMethod(paymentMethod: "Virtual Account")
+        chosenPayment =  "Virtual Account"
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func presseWallet(_ sender: Any) {
-        paymentDelegate?.getPaymentMethod(paymentMethod: "E-Wallet")
+        chosenPayment =  "E-Wallet"
         dismiss(animated: true, completion: nil)
         
     }
     
     @IBAction func pressCod(_ sender: Any) {
-        paymentDelegate?.getPaymentMethod(paymentMethod: "COD")
+        chosenPayment =  "COD"
         dismiss(animated: true, completion: nil)
     }
     
